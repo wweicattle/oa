@@ -29,9 +29,9 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   if (to.path == "/login") return next();
   // 获取token值与用户的状态时间
-  let istoken = window.localStorage.getItem("oa-token");
-  let date=window.localStorage.getItem("date");
-  if (!istoken||Date.now()>=date) return next("/login");
+  let istoken = window.localStorage.getItem("oa_token");
+  let date = window.localStorage.getItem("oa_date");
+  if (!istoken || Date.now() >= date) return next("/login");
   next();
 })
 export default router

@@ -9,7 +9,7 @@ export default {
 name:'App',
 methods:{
     goout(){
-        window.localStorage.removeItem("oa-token");
+        window.localStorage.removeItem("oa_token");
         this.$router.replace("/login");
     }
 }

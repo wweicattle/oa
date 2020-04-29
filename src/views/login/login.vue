@@ -67,15 +67,15 @@ export default {
         this.axios.post("/api/user/login", this.loginForm).then(res => {
           if (res.data.success) {
             // 将token进行保存
-            window.localStorage.setItem("oa-token", res.data.token);
+            window.localStorage.setItem("oa_token", res.data.token);
             // 将过期时间保存
-            window.localStorage.setItem("date",res.data.data);
+            window.localStorage.setItem("oa_date", res.data.data);
             this.$message({
               message: "登录成功！",
               type: "success"
             });
             // 登录成功进行跳转
-            this.$router.replace("/home")
+            this.$router.replace("/home");
           } else {
             this.$message.error("用户名或密码错误！");
           }
