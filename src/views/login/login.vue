@@ -86,7 +86,6 @@ export default {
 };
 </script>
 <style scoped>
-@import "../../assets/css/base.css";
 .contain {
   width: 100%;
   height: 100%;
