@@ -34,8 +34,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-
+import { login } from "./../../network/index";
 export default {
   name: "App",
   data() {
@@ -65,9 +64,22 @@ export default {
     handleLogin() {
       this.$refs.ruleLoginRef.validate(bool => {
         if (!bool) return;
-        axios.post('/api/user/login',this.loginForm).then(res=> {
-          console.log(res)
-        })
+        this.axios.post("/api/user/login", this.loginForm).then(res => {
+          if (res.data.success) {
+            // 将token进行保存
+            window.localStorage.setItem("oa-token", res.data.token);
+            // 将过期时间保存
+            window.localStorage.setItem("date",res.data.data);
+            this.$message({
+              message: "登录成功！",
+              type: "success"
+            });
+            // 登录成功进行跳转
+            this.$router.replace("/home")
+          } else {
+            this.$message.error("用户名或密码错误！");
+          }
+        });
       });
     }
   }
@@ -78,8 +90,8 @@ export default {
 .contain {
   width: 100%;
   height: 100%;
-  background-image: url(../../assets/img/back.jpg) ;
-  background-size:cover;
+  background-image: url(../../assets/img/back.jpg);
+  background-size: cover;
   background-repeat: no-repeat;
 }
 .login-title {
@@ -104,7 +116,7 @@ export default {
   padding: 0 30px;
   box-sizing: border-box;
   background: #fff;
-  opacity: .8;
+  opacity: 0.8;
   /* width: 40%; */
   height: 300px;
   position: absolute;
