@@ -5,45 +5,53 @@
       <div class="name">KOOBOO</div>
     </div>
     <div class="header_right">
-      <i class="el-icon-chat-line-round" @click="btnchat"></i>
-      <i class="el-icon-circle-close" @click="goout"></i>
-      <!-- <el-button @click="goout" type="primary">退出</el-button> -->
+      <!-- <i class="el-icon-circle-close" @click="goout"></i> -->
+      <el-badge is-dot class="item">
+        <i class="el-icon-chat-line-round" @click="btnchat"></i>
+      </el-badge>
       <el-avatar icon="el-icon-user-solid"></el-avatar>
-
-      <!-- <span class="username">
-        欢迎光临，wuwei
-      <i class="el-icon-caret-bottom" @click="btn"></i>-->
       <el-dropdown>
         <span class="el-dropdown-link">
-          欢迎你，吴伟
+          欢迎你，{{username}}
           <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>退出</el-dropdown-item>
-          <el-dropdown-item>返回</el-dropdown-item>
+          <el-dropdown-item>个人信息</el-dropdown-item>
+          <el-dropdown-item @click.native="goout">注销</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <!-- </span> -->
+      <div class="goouticon">
+        <i class="el-icon-s-unfold" @click="goout"></i>
+      </div>
     </div>
   </div>
 </template>
 <script>
 export default {
   name: "App",
+  data() {
+    return {
+      username: window.localStorage.getItem("username")
+    };
+  },
   methods: {
     goout() {
-      window.localStorage.removeItem("oa-token");
+      //  清除分类的索引（公告，技术）清除上次点击分类的历史记录
+      window.localStorage.removeItem("params");
+      // 清除token与用户名
+      window.localStorage.removeItem("oa_token");
+      window.localStorage.removeItem("username");
       this.$router.replace("/login");
       this.$message({
-          message: '退出成功',
-          type: 'warning'
-        });
+        message: "退出成功",
+        type: "warning"
+      });
     },
     btn() {
       console.log(2222);
     },
-    btnchat(){
-        console.log("你点击了图标！");
+    btnchat() {
+      console.log("你点击了图标！");
     }
   }
 };
@@ -78,12 +86,9 @@ export default {
   align-items: center;
   font-size: 14px;
 }
-.header_right i {
-  padding-right: 10px;
+.el-badge {
+  margin-right: 10px;
   font-size: 20px;
-}
-.header_right .username {
-  /* text-decoration: underline; */
 }
 
 .el-avatar {
@@ -92,5 +97,8 @@ export default {
   line-height: 30px;
   font-size: 16px;
   margin-right: 5px;
+}
+.header_right .goouticon {
+  margin-left: 10px;
 }
 </style>

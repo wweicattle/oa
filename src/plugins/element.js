@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import {
     Button, Form, FormItem, Input,
-    Message, Container, Aside, Header, Main
+    Message, Container, Aside, Header, Main, Badge, Cascader
 } from 'element-ui'
 import {
     Menu, MenuItem, MenuItemGroup,
@@ -12,7 +12,8 @@ import {
     Tag, Tree, Select, Option
     , Alert, Tabs, TabPane, Steps
     , Checkbox, CheckboxGroup, Timeline, TimelineItem,
-    Avatar,Dropdown,DropdownItem,DropdownMenu
+    Avatar,Dropdown,DropdownItem,DropdownMenu,
+    Divider
 
 } from "element-ui"
 Vue.use(Button);
@@ -31,6 +32,28 @@ Vue.use(Avatar);
 Vue.use(Dropdown);
 Vue.use(DropdownItem);
 Vue.use(DropdownMenu);
+Vue.use(Badge);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
+Vue.use(Card);
+Vue.use(Tree)
+Vue.use(Divider)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Pagination)
+Vue.use(Dialog)
+Vue.use(Cascader)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

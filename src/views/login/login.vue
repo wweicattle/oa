@@ -36,7 +36,7 @@
 <script>
 import { login } from "./../../network/index";
 export default {
-  name: "App",
+  name: "Login",
   data() {
     return {
       // 登录数据绑定
@@ -54,7 +54,8 @@ export default {
           { required: true, message: "请输入密码", trigger: "blur" },
           { min: 3, max: 10, message: "长度在 3 到 10 个字符", trigger: "blur" }
         ]
-      }
+      },
+      userInfo: {}
     };
   },
   methods: {
@@ -70,6 +71,8 @@ export default {
             window.localStorage.setItem("oa_token", res.data.token);
             // 将过期时间保存
             window.localStorage.setItem("oa_date", res.data.data);
+            // 将用户数据保存
+            window.localStorage.setItem("username", res.data.userInfo.username);
             this.$message({
               message: "登录成功！",
               type: "success"

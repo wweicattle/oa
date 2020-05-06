@@ -2,8 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 const login = () => import("./../views/login/login");
 const home = () => import("./../views/home/home");
-
-
+const data = () => import("./../views/Datas/Datas");
 
 Vue.use(VueRouter)
 const routes = [
@@ -18,6 +17,12 @@ const routes = [
   {
     path: "/home",
     component: home,
+    children:[
+      {
+        path:"/data",
+        component:data
+      }
+    ]
   },
 ]
 const router = new VueRouter({

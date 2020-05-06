@@ -10,7 +10,7 @@
       <!-- 侧边栏区域 -->
         <home-aside />
       <el-main>
-        <home-main></home-main>
+        <!-- <home-main></home-main> -->
         <router-view></router-view>
       </el-main>
     </el-container>

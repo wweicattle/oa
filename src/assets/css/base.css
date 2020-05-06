@@ -62,4 +62,6 @@ a {
 .right {
   float: right;
 }
-
+.el-cascader-panel {
+  height: 200px;
+}
