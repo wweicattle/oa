@@ -65,3 +65,9 @@ a {
 .el-cascader-panel {
   height: 200px;
 }
+.el-pagination{
+  padding-top: 30px !important;
+}
+.el-table__expanded-cell[class*=cell]{
+  padding: 20px 102px !important;
+}

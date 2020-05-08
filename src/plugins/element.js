@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import {
     Button, Form, FormItem, Input,
-    Message, Container, Aside, Header, Main, Badge, Cascader
+    Message, Container, Aside, Header, Main, Badge, Cascader, Upload, Popover
 } from 'element-ui'
 import {
     Menu, MenuItem, MenuItemGroup,
@@ -13,7 +13,7 @@ import {
     , Alert, Tabs, TabPane, Steps
     , Checkbox, CheckboxGroup, Timeline, TimelineItem,
     Avatar,Dropdown,DropdownItem,DropdownMenu,
-    Divider
+    Divider,Link
 
 } from "element-ui"
 Vue.use(Button);
@@ -43,6 +43,14 @@ Vue.use(TableColumn)
 Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Cascader)
+Vue.use(Upload)
+Vue.use(Tag)
+Vue.use(Popover)
+Vue.use(Link)
+
+
+
+
 
 
 
@@ -62,4 +70,5 @@ Vue.use(Cascader)
 
 
 Vue.prototype.$message = Message;
-
+// 弹框组件
+Vue.prototype.$confirm = MessageBox.confirm;

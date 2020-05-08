@@ -69,7 +69,7 @@
   </el-aside>
 </template>
 <script>
-import lineToTree from "./../../../common/lineToTree";
+import {lineToTree} from "./../../../common/lineToTree";
 export default {
   name: "Aside",
   data() {

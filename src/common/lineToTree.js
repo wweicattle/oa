@@ -1,5 +1,5 @@
  // 将返回数据线性转化为树形结构
- export default function listToTree(list) {
+ export  function lineToTree(list) {
     let map = {};
     list.forEach(item => {
       if (!map[item.code]) {
@@ -19,3 +19,11 @@
       }
     });
   }
+  // 
+export function timeToDate(arr,prop){
+  var prop=prop;
+  arr.forEach((element, index) => {
+      let aa = new Date(parseInt(element[prop])).toLocaleDateString();
+      arr[index][prop] = aa;
+    });
+}
